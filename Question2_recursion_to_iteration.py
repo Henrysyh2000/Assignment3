@@ -10,7 +10,13 @@ def iterative(n):
     """
     Implement this function. This function should do exactly the same job as recur(n).
     """
-    pass
+    if n < 0:
+        return -1
+    res = 1
+    while n > 10:
+        res += 1
+        n //= 10
+    return res
 
 
 def main():
