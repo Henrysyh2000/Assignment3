@@ -15,12 +15,9 @@ def knapsack_driver(capacity, weights):
         choice = copy.deepcopy(res)
         choice.append(lst[i])
         if sum(choice) == n:
-            if choice not in t:
-                t.append(choice)
+            t.append(choice)
         if i == len(lst) - 1:
             return t
-        elif sum(choice) > n:
-            choice.pop()
         comb(n, lst, res, i + 1, t)
         comb(n, lst, choice, i + 1, t)
         return t
