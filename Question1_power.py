@@ -6,8 +6,12 @@ def power(x,n):
 
     :return: Int -- x^n
     """
-    pass
-
+    if n >= 0:
+        if n == 0:
+            return 1
+        return x * power(x, n - 1)
+    if n < 0:
+        return  1 / x * power(x, n + 1)
 def main():
     print(power(-2, 4))     # 16
     print(power(4, 3))      # 64
