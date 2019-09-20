@@ -11,7 +11,21 @@ def knapsack_driver(capacity, weights):
 
     @return: List of all combinations that can add up to capacity.
     '''
-    pass
+    def comb(n, lst, res, i, t):        
+        choice = copy.deepcopy(res)
+        choice.append(lst[i])
+        if sum(choice) == n:
+            if choice not in t:
+                t.append(choice)
+        if i == len(lst) - 1:
+            return t
+        elif sum(choice) > n:
+            choice.pop()
+        comb(n, lst, res, i + 1, t)
+        comb(n, lst, choice, i + 1, t)
+        return t
+    res = comb(capacity, weights, [], 0, [])
+    return res
 
 def main():   
     casts = [1, 2, 8, 4, 9, 1, 4, 5]
