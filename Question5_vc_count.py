@@ -8,8 +8,22 @@ def vc_count(word):
     :return: List[Int] -- the first integer is the number of vowels, 
                           the second integer is the number of consonants.
     """
-    pass
-    
+    def count(s, res):
+        if len(s) == 1:
+            if s in 'aeiou':
+                res[0] += 1
+            res[1] += 1
+            return res
+        else:
+            if s[0] in 'aeiou':
+                res[0] += 1
+            else:
+                res[1] += 1
+            return count(s[1:], res)  
+    i = [0, 0]
+    word.lower()
+    res = count(word, i)
+    return res
 
 def main():
     print(vc_count("GoodMorningShanghai"))   # [7, 12]
