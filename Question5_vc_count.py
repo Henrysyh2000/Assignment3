@@ -12,7 +12,8 @@ def vc_count(word):
         if len(s) == 1:
             if s in 'aeiou':
                 res[0] += 1
-            res[1] += 1
+            else:
+                res[1] += 1
             return res
         else:
             if s[0] in 'aeiou':
@@ -21,7 +22,7 @@ def vc_count(word):
                 res[1] += 1
             return count(s[1:], res)  
     i = [0, 0]
-    word.lower()
+    word = word.lower()
     res = count(word, i)
     return res
 
